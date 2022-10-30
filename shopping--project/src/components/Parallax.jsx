@@ -18,7 +18,7 @@ export default function Parallax() {
 
   return (
     <div className="wrapper">
-      <div className="bg2-all">
+
       <div
         className="bg bg2"
         style={{
@@ -27,7 +27,7 @@ export default function Parallax() {
       >
         <div className="bg2-p">BMW 뉴 3시리즈 제원정보.</div>
       </div>
-      </div>
+
       <p
         className="desc"
         style={{
@@ -54,10 +54,16 @@ export default function Parallax() {
         —————————————————————————————————————————————————————————————————————————————————————————————————————————————————
       </p>
       <div className="desc-all">
+        <div className="desc3-1" style={{
+          opacity: (position - 1650) / 450,
+        }}>
+         >
+        </div>
+  
       <p
         className="desc3"
         style={{
-          opacity: (position - 500) / 250,
+          opacity: (position - 1850) / 450,
         }}
       >
         Duis aute irure dolor
@@ -65,7 +71,7 @@ export default function Parallax() {
       <p
         className="desc3"
         style={{
-          opacity: (position - 530) / 250,
+          opacity: (position - 2050) / 450,
         }}
       >
         Lorem ipsum dolor sit amet
@@ -74,7 +80,7 @@ export default function Parallax() {
       <p
         className="desc3"
         style={{
-          opacity: (position - 660) / 250,
+          opacity: (position - 2150) / 450,
         }}
       >
         Excepteur sint occaecat
@@ -82,7 +88,7 @@ export default function Parallax() {
       <p
         className="desc3"
         style={{
-          opacity: (position - 790) / 250,
+          opacity: (position - 2250) / 450,
         }}
       >
         sunt in culpa qui officia deserunt

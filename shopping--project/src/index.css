@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'ChosunSg';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunSg.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: 'ChosunSg';
+}
+body{
+  background-color: #131313;
+  
+}
+html{
+  scroll-behavior: smooth;
+}
+.page{
+  position: absolute;
+  top: 69px;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #131313;
+  
+}
+
+.titleWrap{
+  margin-top: 40px;
+  font-size: 26px;
+  font-weight: bolder;
+  color: rgb(253, 253, 253);
+}
+.contentWrap{
+  margin: auto;
+  flex: 1;
+}
+.inputTitle{
+  font-size: 12px;
+  font-weight: 600;
+  color: #131313;
+}
+.inputWrap{
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid rgb(194, 194, 194);
+}
+/* 인풋창 클릭하면 태두리색 바뀜 */
+.inputWrap:focus-within{
+  border: 1px solid rgb(35, 130, 253);
+}
+
+.input{
+  margin: auto;
+  width: 100%;
+  outline:  none;
+  border: none;
+  height: 17px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.input::placeholder{
+  color: rgb(192, 192, 192);
+}
+
+.errorMessageWrap {
+  margin-top: 8px;
+  color: rgb(206, 0, 0);
+  font-size: 15px;
+}
+
+.bottomButton{
+  width: 30%;
+  height: 48px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(35, 130, 253);
+  color: white;
+  margin-bottom: 20px;
+  cursor: pointer;
+  
+}
+
+/* 버튼 비활성화일때 회색 */
+.bottomButton:disabled{
+  background-color: rgb(172, 172, 172);
+  color: white;
+}
+
+h1{
+  color: white;
+}
+p{
+  color: white;
+}
+.slick-slider{
+  margin-top: 50px;
+}
+.Login-Logo{
+  width: 100px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+
+.slick-list{
+  background-color: #131313;
+  border: none;
+}
+.slick-slide{
+  background-color: #131313;
+}
+.btn-outline-primary{
+  --bs-btn-border-color: #ffffff;
+}
+
+/* 스크롤바 커스텀 */
+body::-webkit-scrollbar {
+  width: 6px;  /* 스크롤바의 너비 */
+}
+body::-webkit-scrollbar-thumb {
+  height: 10%; /* 스크롤바의 길이 */
+  background: #444444; /* 스크롤바의 색상 */
+  
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #131313;  /*스크롤바 뒷 배경 색상*/
+}
+
+
+.Comment-Color{
+  color: black;
+}
+.card-img-overlay{
+
+}
+.top-grd{
+  z-index: 11;
+  height: 100px;
+  margin-bottom: -124px;
+  color: #0e0e0e;
+}
+
+
+.Main-Card{
+  width: 100%;
+}
+.Main-Card-title{
+  color: white;
+  margin-top: 60px;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.Main-Card-Subtitle{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.he{
+  height: 100vh;
+}
+
+
+/* 스크롤 택스트 애니메이션 */
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+  min-height: 4000px;
+  height: 100vh;
+  
+}
+
+.wrapper .scroll-down {
+  z-index:11; /*숫자가 클수록 앞에 옴*/
+  position: fixed;
+  width: 42px;
+  height: 64px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 82px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50px;
+}
+.scroll-down::before, .scroll-down::after{
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  border: 2px solid rgb(255, 255, 255);
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-top: transparent;
+  border-left: transparent;
+  animation: MoveArrow 1s ease-in-out infinite;
+}
+
+.scroll-down::after{
+  top: 30%;
+  animation-delay: 0.3s;
+}
+@keyframes MoveArrow{
+  0%{
+    opacity: 0;
+  }
+  30%{
+    opacity: 1;
+  }
+  60%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    top: 90%;
+  }
+}
+
+.wrapper div,
+.wrapper p {
+  position: relative;
+}
+
+.item {
+  position: absolute;
+  top: 1600px;
+  right: 0;
+  opacity: 0.5;
+  z-index: 1;
+  
+}
+
+.item_snow {
+  left: 100px;
+  right: auto;
+  width: 200px;
+  opacity: 1;
+}
+
+.bg {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg div {
+  
+}
+
+.bg1 {
+  background: url(./img/desc.jpg) no-repeat;
+}
+
+.bg2 {
+  margin-top: 200px;
+  margin-bottom: 70px;
+  background: url(./img/desc.jpg) no-repeat;
+  margin-left: 150px;
+}
+.bg2-all{
+  
+}
+.bg2 .bg2-p{
+  font-size: 40px;
+  color: white;
+  display: flex;
+  margin-left: 35%;
+}
+
+.desc-all{
+  margin-top: 120px;
+}
+.desc .desc1{
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  left: 50%;
+  
+}
+.desc {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  left: 50%;
+}
+
+.desc2 {
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  right: 50%;
+}
+
+.desc3 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  opacity: 1;
+}
+.desc3-1{
+  float: left;
+  background: url(./img/desc.jpg) no-repeat center;
+  width: 100%;
+  height: 600px;
+  margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
