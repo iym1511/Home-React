@@ -3,7 +3,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 
 const ProductDisplay = (props) => {
   const {product} = props;
-  const [index, setIndex] = useState(1)
+  const [index, setIndex] = useState(0)
   return (
     <Container>
       <Row>
@@ -32,12 +32,12 @@ const ProductDisplay = (props) => {
               }
             </div>
             <div className="d-grid gap-2">
-              <Button variant="primary" size="lg" style={{backgroundColor:"rgb(60 60 60)",border:"none"}}>
+              <Button variant="outline-light" size="lg" style={{border:"1px solid white"}}>
                 구매
               </Button>
-              <Button variant="light" size="lg">
+              <Button variant="outline-light" size="lg" >
                 장바구니
-              </Button><Button variant="light" size="lg">
+              </Button><Button variant="outline-light" size="lg">
                 찜
               </Button>
             </div>

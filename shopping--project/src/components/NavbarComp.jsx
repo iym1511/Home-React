@@ -40,13 +40,13 @@ function NavbarComp() {
           </NavLink>
           <Nav className="me-auto">
             <NavLink to="/" className="nav-link">
-              Home
+              <p>Home</p>
             </NavLink>
             <NavLink to="/" className="nav-link">
-              소개
+              <p>소개</p>
             </NavLink>
             <NavLink to="/" className="nav-link">
-              오시는 길
+              <p>오시는 길</p>
             </NavLink>
           </Nav>
           <Navbar.Collapse className="justify-content-end">

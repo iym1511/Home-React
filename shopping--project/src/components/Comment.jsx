@@ -1,10 +1,11 @@
 import { ListGroup } from "react-bootstrap";
 
-const Comment = () => {
+const Comment = (props) => {
+    const {comment} = props
     return (  
-        <ListGroup.Item>
-            <h4>이름</h4>
-            <p className="Comment-Color">댓글내용</p>
+        <ListGroup.Item style={{backgroundColor:"#141414", color:"white"}}>
+            <h4>{comment.name}</h4>
+            <p className="Comment-Color" style={{color:"white"}}>{comment.text}</p>
         </ListGroup.Item>
     );
 }

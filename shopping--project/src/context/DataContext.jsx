@@ -11,8 +11,14 @@ const DataContext = createContext();
 const DataProvider = ({children}) => {
     // 사용할 값들을 useState를 통해 값을 들고옴
     // 유저정보  {name: "홍길동", profile : 사진, likelist : [] }
-    const [user, setUser] = useState({name: "이재용", profile : null, likelist : [] });
+    const [user, setUser] = useState({name: "이재용",birthday: "1998년 01월 01일", profile : null, likelist : [] });
     
+    const [mysave, setMysave] = useState([
+        {
+            profileName : "문일윤"
+        }
+    ])
+
     // 상품정보 : 상품배열로 들어감
     const [productList, setProductList] = useState([
         {
@@ -22,7 +28,7 @@ const DataProvider = ({children}) => {
             productMoney : "$ 66,400,000",
             productDetail : "BMW i4 M50 ",
             productColor : ["white", "#123DB3"],
-            productPicture : ["3.jpg", "2.jpg" ]
+            productPicture : ["3.jpg", "2.jpg"]
         },
         {
             productId : 2,
@@ -40,10 +46,10 @@ const DataProvider = ({children}) => {
         },
         {
             productId : 4,
-            productName : "책4",
-            productDetail : "리액트를 알려주는 책입니다",
-            productColor : ["white"],
-            productPicture : ["6.jpg"]
+            productName : "BMW XM",
+            productDetail : "플러그인 하이브리드",
+            productColor : ["rgb(78,93,104)"],
+            productPicture : ["8.jpg"]
         }
     ])
     // 댓글정보
@@ -51,27 +57,31 @@ const DataProvider = ({children}) => {
         {
             commentId : 1,
             productId : 1,
-            name : "green",
-            text : "좋은 책입니다"
+            name : "팀쿡",
+            text : "좋은 차량입니다"
         },
         {
             commentId : 2,
             productId : 1,
-            name : "blue",
+            name : "이재용",
             text : "괜찮습니다"
         }
     ])
+    const [commentCount, setCommentCount] = useState(3);
 
+    
     
     // 사용할 value 값을 state와 action 분리해서 넣어둠
     const value = {
-        state : {user, productList, allComments},
-        action : {setUser, setProductList, setAllComments}
+        state : {user, productList, allComments, commentCount},
+        action : {setUser, setProductList, setAllComments, setCommentCount}
     };
     // DataProvider를 사용할때 DataContext.Provider를 사용할수 있도록함
     // 이때 children은 Provider을 쓸때 데이터를 공용을 쓰는 컴포넌트들
+
     return <DataContext.Provider value={value}>{children}</DataContext.Provider>
 };
+
 
 // consumer 작성
 // DataContext의 값을 가져와서 DataConsumer으로 사용

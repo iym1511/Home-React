@@ -25,7 +25,7 @@ export default function Parallax() {
           backgroundPositionY: position / -6
         }}
       >
-        <div className="bg2-p">BMW 뉴 3시리즈 제원정보.</div>
+        <div className="bg2-p"></div>
       </div>
 
       <p
@@ -54,44 +54,48 @@ export default function Parallax() {
         —————————————————————————————————————————————————————————————————————————————————————————————————————————————————
       </p>
       <div className="desc-all">
+        <div className="desc3-1-Card">
         <div className="desc3-1" style={{
           opacity: (position - 1650) / 450,
         }}>
-         >
         </div>
-  
+        <div >
+          <h1 style={{opacity: (position - 1360) / 450, marginBottom:"20px",marginTop:"80px"}}>BMW 최초의 M 전용 초고성능</h1>
+          <p style={{opacity: (position - 1460) / 450}}>BMW 최초의 M 전용 초고성능 SAV.</p>
+          <p style={{opacity: (position - 1560) / 450}}>◦ V8 가솔린 엔진과 전기모터가 결합된 M 하이브리드</p>
+          <p style={{opacity: (position - 1660) / 450}}>◦ 하이브리드 전용 M xDrive 사륜구동 시스템</p>
+          <p style={{opacity: (position - 1760) / 450}}>◦ 80km 순수 전기주행*, 653마력*, 81.6 kg.m토크*</p>
+          </div>
+        </div>
+      <p
+        className="desc3"
+        style={{
+          opacity: (position - 1650) / 450,
+        }}
+      >
+      </p>
+      <p
+        className="desc3"
+        style={{
+          opacity: (position - 1750) / 450,
+        }}
+      >
+
+      </p>
       <p
         className="desc3"
         style={{
           opacity: (position - 1850) / 450,
         }}
       >
-        Duis aute irure dolor
+
       </p>
       <p
         className="desc3"
         style={{
-          opacity: (position - 2050) / 450,
+          opacity: (position - 1950) / 450,
         }}
       >
-        Lorem ipsum dolor sit amet
-        
-      </p>
-      <p
-        className="desc3"
-        style={{
-          opacity: (position - 2150) / 450,
-        }}
-      >
-        Excepteur sint occaecat
-      </p>
-      <p
-        className="desc3"
-        style={{
-          opacity: (position - 2250) / 450,
-        }}
-      >
-        sunt in culpa qui officia deserunt
       </p>  
       </div>
       <div className="scroll-down"></div>

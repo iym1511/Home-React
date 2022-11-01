@@ -10,7 +10,8 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/*  process.env.PUBLIC_URL = package.json에 작성해준 주소로 연결 */}
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
