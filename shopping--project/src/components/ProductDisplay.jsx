@@ -15,8 +15,8 @@ const ProductDisplay = (props) => {
         <Col>
           <div>
             <h1>{product.productName}</h1>
-            <p>{product.productDetail}</p>
-            <p>색상 설명</p>
+            <p className="color-Name">{product.productDetail}</p>
+            <p className="color-Name">색상 설명</p>
             <div>
               {
                 // productColor에 있는 color 값을 백그라운드로 사용
@@ -24,7 +24,7 @@ const ProductDisplay = (props) => {
                   <div className="m-2" style={{ display:"inline-block", 
                                 width: "30px", height:"30px", 
                                 backgroundColor: color,
-                                border : "3px solid lightgrey"
+                                border : "1px solid white", borderRadius:"100%"
                               }}
                     onMouseEnter={()=>{setIndex(i)}}
                     ></div>

@@ -57,14 +57,14 @@ const DataProvider = ({children}) => {
         {
             commentId : 1,
             productId : 1,
-            name : "팀쿡",
+            name : "이재용",
             text : "좋은 차량입니다"
         },
         {
-            commentId : 2,
+            /* commentId : 2,
             productId : 1,
             name : "이재용",
-            text : "괜찮습니다"
+            text : "괜찮습니다" */
         }
     ])
     const [commentCount, setCommentCount] = useState(3);

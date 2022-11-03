@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Container, Row,Col } from "react-bootstrap";
 import DataContext from "../context/DataContext";
 import ProfileUpdateModal from "../components/ProfileUpdateModal"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faFacebook, faInstagram,faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 const Profile = () => {
     const {state} = useContext(DataContext);
@@ -21,21 +23,32 @@ const Profile = () => {
                     <h2>내정보</h2>
                     <p>이름 : {state.user.name}</p>
                     <p>생년월일 : {state.user.birthday}</p>
+                    <p>비밀번호 : <button style={{backgroundColor:"#131313", color:"white", border:"1px solid white"}}>
+                        수정
+                        </button>
+                    </p>
+                    <p></p>
                     </Col>
                     <div>
                     {/* 이름과 찜목록을 출력 */}
-                    <h2>이름 : {state.user.name}</h2>
                     <hr></hr>
                     <h2 className="like-title">찜 목록</h2>
                     <ul className="like-list">
                         {state.user.likelist.map((like)=>(<li className="like-name">{like.productName}</li>))}
-
                     </ul>
+                    <footer className="footer">
+                        <img src="https://www.bmw.co.kr/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg" alt="" />
+                        <p>© Copyright 2022 BMW Motor Company.</p>
+                        <p>All Rights Reserved.</p>
+                        <a href="https://ko-kr.facebook.com/BMWKorea/"><FontAwesomeIcon icon={faFacebook} className="footer-img"/></a>
+                        <a href="https://www.instagram.com/bmw_korea/"><FontAwesomeIcon icon={faInstagram} className="footer-img"/></a>
+                        <a href="https://www.youtube.com/c/bmwkorea"><FontAwesomeIcon icon={faYoutube} className="footer-img"/></a>
+                    </footer>
                     </div>
                 </Row>
             </Container>
         </div>
     );
 }
- 
+
 export default Profile;

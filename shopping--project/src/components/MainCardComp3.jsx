@@ -16,11 +16,9 @@ function MainCardComp3(card) {
             <Card className="bg-dark text-white">
       <Card.Img src={card.image} alt="Card image" />
       <Card.ImgOverlay>
-        <Card.Title>Card title</Card.Title>
-        <Card.Text>
-          
-        </Card.Text>
-        <Card.Text>Last updated 3 mins ago</Card.Text>
+        <Card.Title className='Card-Title3'>BMW</Card.Title>
+        <Card.Text className='Card-Text3'>THE i4</Card.Text>
+        <Card.Text className='Card-Text3-2'>BMW i4 최초의 순수전기 그란 쿠페.</Card.Text>
       </Card.ImgOverlay>
     </Card>
             </>

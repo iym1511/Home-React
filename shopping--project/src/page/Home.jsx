@@ -19,10 +19,19 @@ import "aos/dist/aos.css";
 
 import { useEffect } from "react";
 
+import Map from "../Map/Map";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Button } from "react-bootstrap";
+
+import { NavLink, useNavigate } from "react-router-dom";
+import {useRef, useState } from "react";
+
+import ScrollToTop from "../components/ScrollToTop";
 
 
 
-
+const { kakao } = window;
 
 const Home = () => {
     const settings = {
@@ -45,6 +54,7 @@ const Home = () => {
         autoplay: true,
         autoplaySpeed: 3000
     };
+    
 
     useEffect(()=>{
         Aos.init({duration: 2000});
@@ -53,10 +63,103 @@ const Home = () => {
     // 받아서 씀
     const {state} = useContext(DataContext)
 
+    // -----------Navbar--------------
+
+    //데이터
+    const [login, setLogin] = useState(true);
+    const data = useContext(DataContext);
+    // 네비게이터
+    const navigate = useNavigate();
+
+    // 컴포넌트가 마운트 되자마자 로그인정보 확인
+    useEffect(()=>{
+        setLogin(data.state.user ? true : false )
+    }, [data.state.user]) //새로 로그인을 했을때 화면이 바뀌게 설정
+
+    // Logout을 위한 이벤트 함수
+    const logOut = () => {
+        setLogin(false) // 컴포넌트를 바꾸주기 위해 수정
+        // userd의 값을 null로 바꿔줌
+        data.action.setUser("");
+        // 다른곳에서 로그아웃을해도 항상 홈으로 돌아감
+        navigate("/");
+    }
+
+    // 특정위치로 스크롤 이동
+    const main = useRef(null);
+    const blog = useRef(null);
+    const contact = useRef(null);
+    const map = useRef(null);
+
+    const scrollToSection = (elementRef) => {
+    window.scrollTo({
+        top: elementRef.current.offsetTop,
+        behavior: "smooth",
+    });
+    };
+
+
     return (  
         <div>
-            <div>
+            
+            {/* 네브바 */}        
+            <ScrollToTop />
+            <div className="hero">
             </div>
+            <Navbar bg="#13131300" variant="dark" style={{background: "linear-gradient( to top, #00000000, #0e0e0e )",height:"100px"}}>
+                <Container style={{marginTop:"12px", }}>
+                <NavLink to="/" className="nav-link" style={{marginRight:"50px",marginBottom:"30px"}}>
+                    <img src="https://www.bmw.co.kr/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg"  />
+                </NavLink>
+                <Nav className="me-auto">
+                    <NavLink to="/" className="nav-link ">
+                    <div ref={main} >
+                    <p onClick={() => scrollToSection(main)} className="link">소개</p>
+                    </div>
+                    </NavLink>
+                    <NavLink to="/" className="nav-link">
+                    <div ref={blog}>
+                    <p onClick={() => scrollToSection(blog)} className="link">차량 성능</p>
+                    </div>
+                    </NavLink>
+                    <NavLink to="/" className="nav-link">
+                    <div ref={contact}>
+                    <p onClick={() => scrollToSection(contact)} className="link">커뮤니티</p>
+                    </div>
+                    </NavLink>
+                    <NavLink to="/" className="nav-link">
+                    <div ref={map} className="contact">
+                    <p onClick={() => scrollToSection(map)} className="link">오시는 길</p>
+                    </div>
+                    </NavLink>
+                </Nav>
+                <Navbar.Collapse className="justify-content-end">
+                    {login ? (
+                    <Nav style={{marginBottom:"30px"}}>
+                        {/**로그인이 되었을때 출력될 컴포넌트 */}
+                        <div style={{backgroundImage:`url(${data.state.user.profile})`,backgroundSize:'cover', 
+                        border:"1px solid white", width:"50px", height:"50px",
+                        borderRadius:"100%", backgroundRepeat:"no-repeat"}}>
+                        </div>
+                        <div className="nav-link1" to="/mypage" style={{margin:"5px", marginLeft:"8px"}}>
+                        {data.state.user.name} 님
+                        </div>
+                        <NavLink className="nav-link" to="/mypage" style={{margin:"5px", marginLeft:"8px"}}>
+                        마이페이지
+                        </NavLink>
+                        <Button variant="outline-light" onClick={ logOut }>Logout</Button>{" "}
+                    </Nav>
+                    ) : (
+                    <div>
+                        {/** 로그인이 되지 않았을때 출력될 컴포넌트 */}
+                        <Button variant="outline-light" onClick={()=>{navigate('/loginform')}} style={{border:"1px solid white", width:"70px", height:"50px", marginBottom:"30px"}}>Login</Button>{" "}
+                    </div>
+                    )}
+                </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            {/* 네브바 */}
+
             <Slider {...settings1}  style={{marginTop:"-16px"}}>
             <div>
             <div className="top-grd"></div>
@@ -72,7 +175,7 @@ const Home = () => {
             </div>
         </Slider>
         <div className="Main-Card">
-        <h2 className="Main-Card-title">Our Models</h2>
+        <h2 className="Main-Card-title services" ref={main}>Our Models</h2>
         <p className="Main-Card-Subtitle">역동적이면서도 우아한 디자인과 최첨단 기술을 탑재한 BMW 브랜드의 라인업을 살펴보세요.</p>
         </div>
             <Container>
@@ -90,7 +193,7 @@ const Home = () => {
             </Container>
             <Parallax />
             
-            <h1 className="fade-title">BMW XM 주행 성능.</h1>
+            <h1 className="fade-title" ref={blog}>BMW XM 주행 성능.</h1>
             <div className="grids">
                 <div data-aos="fade-up" className="fade-image">
                 <div className="fade-img1">
@@ -126,9 +229,35 @@ const Home = () => {
                 <img className="fade-img4" src={require('../img/fadeimg4.jpg')} alt="" />
                 <h2 data-aos="fade-right" className="fade-img4-tag">BMW 커브드 디스플레이.</h2>
                 <p data-aos="fade-right" className="fade-img4-tag2">12.3인치 디스플레이와 터치식 14.9인치 디스플레이가 결합된<br></br><br></br>
-                BMW 커브드 디스플레이는 차량에 대한 정보를 더욱 분명하고 선명하게 보여줍니다. </p>
+                BMW 커브드 디스플레이는 차량에 대한 정보를 더욱 분명하고 선명하게 보여줍니다. </p> 
                 </div>
+                <div className="insta-Box">
+                    <p ref={contact}>Instagram</p>
+                    <p className="insta-p">Experience BMW</p>
+                    <div className="insta-Card">
+                        <a href="https://www.instagram.com/p/Cj2c7-ZP8Ih/?utm_source=ig_web_copy_link">
+                            <img src={require('../img/insta.jpg')} className="insta-img" />
+                        </a>
+                    </div>
+                    <div className="insta-Card">
+                        <a href="https://www.instagram.com/p/Cb7Mf66vC37/?utm_source=ig_web_copy_link">
+                            <img src={require('../img/insta2.jpg')} className="insta-img" />
+                            <p>instagram</p>
+                        </a>
+                    </div>
+                    <div className="insta-Card">
+                        <a href="https://www.instagram.com/p/CaTXkShvzRt/?utm_source=ig_web_copy_link">
+                            <img src={require('../img/insta3.jpg')} className="insta-img" />
+                        </a>
+                    </div>
+                </div>
+
+                <p className="map-Title" ref={map}>오시는길</p>
+
+                    <Map />
             </div>
+            
+                                
             <footer className="footer">
                 <img src="https://www.bmw.co.kr/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg" alt="" />
                 <p>© Copyright 2022 BMW Motor Company.</p>

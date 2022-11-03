@@ -5,7 +5,8 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
 import { useEffect } from "react";
-
+import NavbarComp from "../components/NavbarComp";
+import { Outlet } from "react-router-dom";
 const User = {
   email: 'test@example.com',
   pw: 'test8361@'
@@ -82,6 +83,8 @@ const Login = () => {
   return (
     <Form onSubmit={loginUser}>
     <div className="page" >
+      
+      <div className="login-border">
     <img src="https://customer.bmwgroup.com/oneid/oneidconfig/assets/brand/bmw/bmw_logo.svg" className="Login-Logo" />
             <div className="titleWrap">
                 BMW ID 로그인
@@ -129,6 +132,7 @@ const Login = () => {
             <div>
                 {/* disabled 버튼활성화 체크*/}
                 <button type="submit" disabled={notAllow}  className="bottomButton">로그인</button>
+            </div>
             </div>
         </div>
         </Form>
