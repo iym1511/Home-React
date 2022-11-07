@@ -57,7 +57,7 @@ function ProductCard(props) {
       // 값이 없을때, likelist를 추가하는 내용
       // like(객체)를 만들어서 물건ID와 물건이름 추가
       const like = {productId : product.productId, productName : product.productName,
-      productEngin : product.productEngin, productMoney : product.productMoney};
+      productEngin : product.productEngin, productMoney : product.productMoney, productPicture : product.productPicture};
       // like가 추가된 새로운 배열 생성
       const newLikeList = likes.concat(like);
 
@@ -65,7 +65,7 @@ function ProductCard(props) {
         ...data.state.user,
         likelist : newLikeList
       })
-
+      console.log(like)
       setLikCheck(true);
     }
 

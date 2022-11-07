@@ -14,8 +14,6 @@ const ProductDetaile = () => {
         data.state.allComments.filter((comment)=>(comment.productId == id))
         );
 
-    
-
     // 마운트 하자마자 값을 들고와서 출력함
     // state.allComment 값이 바뀔때마다 업데이트 / 댓글 바로바로 업데이트
     useEffect(()=>{

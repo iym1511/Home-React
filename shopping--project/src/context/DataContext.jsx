@@ -24,8 +24,10 @@ const DataProvider = ({children}) => {
         {
             productId : 1,
             productName : "BMW i4",
-            productEngin : " 가솔린 / 디젤",
+            productEngin : "순수 전기",
             productMoney : "$ 66,400,000",
+            productElc : "7.14km/kWh",
+            productKm : "250 ~ 400 마력",
             productDetail : "BMW i4 M50 ",
             productColor : ["white", "#123DB3"],
             productPicture : ["3.jpg", "2.jpg"]
@@ -33,6 +35,10 @@ const DataProvider = ({children}) => {
         {
             productId : 2,
             productName : "BMW iX",
+            productEngin : "순수 전기",
+            productMoney : "$ 148,600,000",
+            productElc : "4.6km/kWh",
+            productKm : "326kw 마력",
             productDetail : "BMW iX M60",
             productColor : ["#C3000D","gray"],
             productPicture : ["4.jpg","5.jpg"]
@@ -40,6 +46,10 @@ const DataProvider = ({children}) => {
         {
             productId : 3,
             productName : "BMW 5 시리즈",
+            productEngin : " 가솔린 / 디젤 / 하이브리드",
+            productMoney : "$ 66,000,000",
+            productElc : "8 ~ 16 km/l",
+            productKm : "135 ~ 460kW 마력",
             productDetail : "BMW M5 컴페티션",
             productColor : ["#2286DC","#C3000D"],
             productPicture : ["6.jpg","7.jpg"]
@@ -47,6 +57,10 @@ const DataProvider = ({children}) => {
         {
             productId : 4,
             productName : "BMW XM",
+            productEngin : " 가솔린 / 하이브리드",
+            productMoney : "$ 240,530,000",
+            productElc : "1.6-1.5l/100km",
+            productKm : "653kW 마력",
             productDetail : "플러그인 하이브리드",
             productColor : ["rgb(78,93,104)"],
             productPicture : ["8.jpg"]

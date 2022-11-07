@@ -8,25 +8,28 @@ import "slick-carousel/slick/slick-theme.css";
 import { DataProvider } from "./context/DataContext";
 
 // 라이브러리 컴포넌트 import
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Layout from "./page/Layout";
 import Home from "./page/Home";
 import Login from "./page/Login";
 import ProductDetaile from "./page/ProductDetail";
 import Profile from "./page/Profile";
-import Map from "./Map/Map";
+
+
+
+
+
 function App() {
   return (
     <div className="App">
       <DataProvider>
-        <Routes>
-              <Route index element={<Home />}></Route>
+        <Routes >
+            <Route index element={<Home />}></Route>
             <Route path="/" element={<Layout />}>
-              <Route path="loginform" element={<Login />}></Route> 
-              <Route path="product/:id" element={<ProductDetaile />}></Route>
-              <Route path="mypage" element={<Profile/>}></Route>
+              <Route exact={true} path="loginform" element={<Login />}></Route> 
+              <Route exact={true} path="product/:id" element={<ProductDetaile />}></Route>
+              <Route exact={true} path="mypage" element={<Profile/>}></Route>
             </Route>
-
         </Routes>
       </DataProvider>
     </div>

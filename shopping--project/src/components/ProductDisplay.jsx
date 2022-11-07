@@ -7,14 +7,27 @@ const ProductDisplay = (props) => {
   return (
     <Container>
       <Row>
-        <Col>
-          <div>
-            <img src={require(`../img/${product.productPicture[index]}`)} alt="" />
+        {/* <Col> */}
+          <div className="card1">
+            <div className="lines"></div>
+            <div className="imgBx">
+              <img src={require(`../img/${product.productPicture[index]}`)} className="card1-name" />
+            </div>      
+            <div className="content1">
+              <div className="details">
+                  <h2>{product.productName}</h2>
+                  <div className="data">
+                  <p>엔진 : {product.productEngin}</p>
+                  <p>가격 : {product.productMoney}</p>
+                  <p>연비 : {product.productElc}</p>
+                  <p>최대출력 : {product.productKm}</p>
+                  </div>
+                </div>  
+            </div>     
           </div>
-        </Col>
-        <Col>
-          <div>
-            <h1>{product.productName}</h1>
+        {/* </Col> */}
+        {/* <Col> */}
+          <div style={{marginTop: "100px"}}>
             <p className="color-Name">{product.productDetail}</p>
             <p className="color-Name">색상 설명</p>
             <div>
@@ -42,7 +55,7 @@ const ProductDisplay = (props) => {
               </Button>
             </div>
           </div>
-        </Col>
+        {/* </Col> */}
       </Row>
     </Container>
   );

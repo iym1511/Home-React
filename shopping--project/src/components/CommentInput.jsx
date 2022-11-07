@@ -39,7 +39,7 @@ return (
               controlId="floatingTextarea"
               label="오너 평가"
               className="mb-3"
-              style={{color:"gray", width:"100%"}}
+              style={{color:"gray", }}
             >
               <Form.Control as="textarea" placeholder="Leave a comment here" 
               onChange={(e)=>{setTextInput(e.target.value)}}/>

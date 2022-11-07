@@ -28,12 +28,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import {useRef, useState } from "react";
 
 import ScrollToTop from "../components/ScrollToTop";
-
+import { motion } from "framer-motion";
 
 
 const { kakao } = window;
 
-const Home = () => {
+const Home = ({menu, movePage}) => {
     const settings = {
         dots: false,
         infinite: true,
@@ -101,7 +101,7 @@ const Home = () => {
 
     return (  
         <div>
-            
+
             {/* 네브바 */}        
             <ScrollToTop />
             <div className="hero">
@@ -239,13 +239,13 @@ const Home = () => {
                             <img src={require('../img/insta.jpg')} className="insta-img" />
                         </a>
                     </div>
-                    <div className="insta-Card">
+                    <div className="insta-Card2">
                         <a href="https://www.instagram.com/p/Cb7Mf66vC37/?utm_source=ig_web_copy_link">
                             <img src={require('../img/insta2.jpg')} className="insta-img" />
                             <p>instagram</p>
                         </a>
                     </div>
-                    <div className="insta-Card">
+                    <div className="insta-Card3">
                         <a href="https://www.instagram.com/p/CaTXkShvzRt/?utm_source=ig_web_copy_link">
                             <img src={require('../img/insta3.jpg')} className="insta-img" />
                         </a>
@@ -266,7 +266,7 @@ const Home = () => {
                 <a href="https://www.instagram.com/bmw_korea/"><FontAwesomeIcon icon={faInstagram} className="footer-img"/></a>
                 <a href="https://www.youtube.com/c/bmwkorea"><FontAwesomeIcon icon={faYoutube} className="footer-img"/></a>
             </footer>
-        </div>
+            </div>
     );
 }
 

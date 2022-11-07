@@ -8,6 +8,9 @@
   font-family: 'ChosunSg';
   list-style-type: none;
 }
+.header{
+ 
+}
 body{
   background-color: #131313;
 }
@@ -78,7 +81,7 @@ html{
   color: white;
   transition: 0.4s;
   padding-top: 6px;
-  margin-right: 50px;
+  margin-right: 10px;
   font-size: 18px;
 }
 .nav-link p:hover{
@@ -595,6 +598,7 @@ body::-webkit-scrollbar-track {
   width: 100%;
   margin-top: 200px;
   margin-bottom: 100px;
+  
   color: white;
 }
 .insta-p{
@@ -604,7 +608,21 @@ body::-webkit-scrollbar-track {
 .insta-Card{
   width: 400px;
   height: 500px;
-  margin: 0 auto;
+  margin-left: -100px;
+  overflow: hidden;
+  display: inline-block;
+}
+.insta-Card2{
+  width: 400px;
+  height: 500px;
+  margin-left: 30px;
+  overflow: hidden;
+  display: inline-block;
+}
+.insta-Card3{
+  width: 400px;
+  height: 500px;
+  margin-left: 30px;
   overflow: hidden;
   display: inline-block;
 }
@@ -695,20 +713,174 @@ body::-webkit-scrollbar-track {
 }
 .like-name{
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  height: 50px;
-  margin-top: 10px;
+  width: 50%;
+  height: 100px;
+  margin-top: 40px;
   padding-left: 20px;
   border: 1px solid white;
   border-radius: 10px;
+  margin: 30px auto;
+}
+.product-list{
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.like-name img{
+  width: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.295);
+  border-radius: 10%;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 
+
 /* 댓글 페이지*/
+.card1{
+  position: relative;
+  width: 100%;
+  height: 250px;
+  transition: 0.5s;
+  margin-bottom: -50px;
+}
+.card1:hover{
+  height: 450px;
+}
+.card1 .lines{
+  position: absolute;
+  inset: 0;
+  background-color: rgb(128, 128, 128);
+  overflow: hidden;
+  width: 33.5%;
+  margin: auto;
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+.card1 .lines::before{
+  content: '';
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1800px;
+  height: 120px;
+  background:linear-gradient(transparent, white, white, white,transparent);
+  animation: animate 4s linear infinite;
+}
+@keyframes animate
+{
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.card1 .lines::after{
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background-color: #131313;
+
+}
+.card1 .imgBx{
+  position:absolute;
+  top: -5%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 270px;
+  height: 200px;
+  transition: 0.5s;
+  overflow: hidden;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+} 
+.card1:hover .imgBx{
+  width: 160px;
+  height: 120px;   
+  z-index: 10;
+}
+.card1 .imgBx::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+  background:linear-gradient(transparent, white, white, white,transparent);
+  animation: animate2 6s linear infinite;
+}
+@keyframes animate2{
+  0%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+.card1 .imgBx::after{
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background-color: #202020
+}
+.card1 .imgBx .card1-name{
+  position: absolute;
+  z-index: 10;
+  width: calc(100% -20px);
+  height: calc(100% - 20px);
+  left: -3%;
+}
+.card1 .content1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  
+}
+.card1 .content1 .details{
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  transform: 0.5s;
+  transform: translateY(295px);
+  transition: 0.5s;
+  
+}
+.card1:hover .content1 .details{
+  transform: translateY(5px);
+}
+.card1 .content1 .details h2{
+  color: white;
+  line-height: 1.2em;
+  margin-bottom:50px ;
+  z-index: 1;
+  transition: 0.5s;
+}
+.card1 .content1 .details h2:hover{
+  transition: 0.5s;
+}
+.card1 .content1 .details .data{
+  display: inline;
+  margin: 20px 0;
+  
+}
+.card1 .content1 .details .data p{
+  font-size: 1em;
+  color: white;
+  line-height: 1.2em;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
 .color-Name{
   color: white;
+  
 }
 
 
@@ -719,3 +891,8 @@ body::-webkit-scrollbar-track {
   margin-top: 200px;
   margin-bottom: 50px;
 }
+
+
+
+
+

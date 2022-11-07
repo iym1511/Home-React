@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -17,6 +17,7 @@ const Login = () => {
 	const [name, setName] = useState("");
 	const {action} = useContext(DataContext)
 	const navigate = useNavigate()
+  const inputRef = useRef("");
 
 	const loginUser = (e) => {
     e.preventDefault();
@@ -76,9 +77,14 @@ const Login = () => {
           setNotAllow(true);
       }
 
-
-
   },[emailValid, pwValid])
+
+  useEffect(()=>{
+    // console.log(inputRef);
+    inputRef.current.focus(); // 로그인id 자동포커스
+  },[])
+
+
 
   return (
     <Form onSubmit={loginUser}>
@@ -99,7 +105,7 @@ const Login = () => {
                     type="text"
                     placeholder="test@example.com" 
                     value={email}
-                    onChange={handleEmail}
+                    onChange={handleEmail} ref={inputRef}
                     />
                 </div>
                 <div className="errorMessageWrap">
