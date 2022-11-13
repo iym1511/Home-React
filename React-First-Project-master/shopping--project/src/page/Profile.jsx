@@ -1,21 +1,32 @@
-import { useContext, useReducer, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Container, Row,Col } from "react-bootstrap";
 import DataContext from "../context/DataContext";
 import ProfileUpdateModal from "../components/ProfileUpdateModal"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faFacebook, faInstagram,faYoutube } from '@fortawesome/free-brands-svg-icons'
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { ko } from 'date-fns/esm/locale';
 
-const Profile = ({onRemove}) => {
+const Profile = ({productLists, onRemove}) => {
     const {state} = useContext(DataContext);
     const [number, setNumber] = useState(1);
     const [money, setMoney] = useState(0);
+    const [startDate, setStartDate] = useState(new Date());
     // 리듀서 생성
     const [count, countDispatch] = useReducer(countReducer,0);
     
+    const ExampleCustomInput = ({ value, onClick }) => (
+        <button class="example-custom-input" onClick={onClick}>
+          {value}
+        </button>
+      );
+
     function countReducer(oldCount, action){
         if(action.type === "UP"){
             return oldCount+ action.number
+            
         }else if(action.type === "DOWN"){
             return oldCount- action.number
         }
@@ -27,11 +38,14 @@ const Profile = ({onRemove}) => {
     function up() {
         countDispatch({type:'UP', number: number})
     }
+
+    
+
     return (  
         <div>
             <Container>
                 <Row style={{color:"white",height:"100vh"}}>
-                    <Col s>
+                    <Col>
                     {/* 프로필 사진과 사진을 수정할 모델창 */}
                     {state.user.profile ? <div style={{width:"350px",height:"200px",
                 backgroundImage:`url(${state.user.profile})`, backgroundSize:"cover", backgroundPosition:"center",
@@ -56,19 +70,24 @@ const Profile = ({onRemove}) => {
                     <ul className="like-list">
                     <div className="like-border">
                         <span>Car Name</span>
-                        <span>가격</span>
-                        <span>개수</span>
+                        <span> 가격</span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                     {
                         state.user.likelist.map((like)=>(<li className="like-name" >
                             <div className="product-list">
                                 <span className="product-span1">{like.productName}</span>
                                 <img src={require(`../img/${like.productPicture[0]}`)}></img>
-                                <span className="product-span2">{like.productMoney}
+                                <span className="product-span2">{like.productMoney}</span>
                                     <input type="button" value="+" onClick={up} className="upBtn1"/>
                                     <input type="button" value="-" onClick={down} className="downBtn1"/>
-                                    <span style={{marginLeft:"20px"}}>수량 : {count}</span>
-                                </span>
+                                    {/* <button onClick={()=>onRemove(state.productLists.productId)}>삭제</button> */}
+                                    <span style={{marginLeft:"20px", marginRight:"20px"}}>수량 : {count}</span>
+                                    <span style={{fontSize:"15px", fontWeight:"bold", marginLeft:"70px"}}>시승 신청 예약</span>
+                                    <div className="date"><DatePicker locale="ko" customInput={<ExampleCustomInput />} selected={startDate} onChange={date => setStartDate(date)}/></div>
+                                    
                             </div>
                         </li>))
                     }

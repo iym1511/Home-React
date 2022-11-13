@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { createContext } from "react";
 import { NavItem } from "react-bootstrap";
+import Profile from "../page/Profile";
 // 내보낸 DataContext에 value을 넣어줘서 사용
 const DataContext = createContext();
 
@@ -25,7 +26,7 @@ const DataProvider = ({children}) => {
             productId : 1,
             productName : "BMW i4",
             productEngin : "순수 전기",
-            productMoney : 66400000,
+            productMoney : "$ 66,400,000",
             productElc : "7.14km/kWh",
             productKm : "250 ~ 400 마력",
             productDetail : "BMW i4 M50 ",
@@ -45,7 +46,7 @@ const DataProvider = ({children}) => {
         },
         {
             productId : 3,
-            productName : "BMW 5 시리즈",
+            productName : "BMW 5 Sris",
             productEngin : " 가솔린 / 디젤 / 하이브리드",
             productMoney : "$ 66,000,000",
             productElc : "8 ~ 16 km/l",
@@ -72,7 +73,7 @@ const DataProvider = ({children}) => {
             commentId : 1,
             productId : 1,
             name : "이재용",
-            text : "좋은 차량입니다"
+            text : "GOOD"
         },
         {
             /* commentId : 2,
@@ -87,14 +88,23 @@ const DataProvider = ({children}) => {
     
     // 사용할 value 값을 state와 action 분리해서 넣어둠
     const value = {
-        state : {user, productList, allComments, commentCount},
-        action : {setUser, setProductList, setAllComments, setCommentCount}
+        state : {user, productList, allComments, commentCount, mysave},
+        action : {setUser, setProductList, setAllComments, setCommentCount, setMysave}
     };
     // DataProvider를 사용할때 DataContext.Provider를 사용할수 있도록함
     // 이때 children은 Provider을 쓸때 데이터를 공용을 쓰는 컴포넌트들
 
-    return <DataContext.Provider value={value}>{children}</DataContext.Provider>
+    const onRemove = (productId) => {
+        setProductList(productList.filter(productLists => productLists.productId !== productId));
+    }
+    return (
+        <div>
+            <DataContext.Provider value={value} onRemove={onRemove} >{children}</DataContext.Provider>
+            
+        </div>
+    )
 };
+
 
 
 // consumer 작성
