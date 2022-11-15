@@ -1,44 +1,11 @@
 import { DragDropContext} from "react-beautiful-dnd";
 import { Droppable} from "react-beautiful-dnd";
 import { Draggable} from "react-beautiful-dnd";
+import ListMain from "./ListMain";
+import React from "react";
 
-const List = ({todoData, setTodoData}) => {
-
-    const btnStyle = {
-        color: "#fff",
-        border:"none",
-        padding: "5px 9px",
-        borderRadius: "50%",
-        cursor: "pointer",
-        float: "right"
-      }
-      
-    // 체크시 밑줄
-    const handleCompelteChane = (id) =>{
-        let newTodoData = todoData.map(data => {
-        if(data.id === id){
-            data.completed = !data.completed;
-        }
-        return data;
-        })
-        setTodoData(newTodoData);
-    }
-
-    // 함수형 스타일 생성
-    const getStyle = (completed) => {
-        return{
-          padding: "10px",
-          borderBottom: "1px #ccc dotted",
-          textDecoration: completed ? ("line-through") : ("none") //true면 밑줄 false면 원본
-        }
-      }
-    
-    
-      // 할일 filter로 지우기
-      // button onClick에서 클릭될때 받은 id와 현재 배열에있는 id 를 비교
-      const handleClick = (id) => {                                  //배열에 있는 id
-        setTodoData(todoData.filter(data => data.id !== id));
-      }
+// React.memo 랜더링 최적화
+const List = React.memo(({todoData, setTodoData, handleClick}) => {
 
       // drag drop 위치 바꿔주는 함수
       const handleEnd = (result) => {
@@ -60,31 +27,27 @@ const List = ({todoData, setTodoData}) => {
     return (  
         <div>
         <DragDropContext onDragEnd={handleEnd}>
-            <Droppable droppableId="todo" style={{marginTop:"200px"}}>
+            <Droppable droppableId="todo">
                 {(provided)=> ( 
                 <div {...provided.droppableProps} ref={provided.innerRef}>
                 {/* 할일 목록 나열 / data안에 todoData 배열들 들어감*/}
                 {todoData.map((data, index)=>(
                 <Draggable key={data.id} draggableId={data.id.toString()} index={index}>
                     {(provided, snapshot) => (
-                    <div key={data.id} style={getStyle(data.completed)} {...provided.draggableProps} ref={provided.innerRef} {...provided.dragHandleProps}>    
-                        <div style={{border:"1px solid red", padding:"10px",margin:"10px auto",display:"inline-block",width:"95%" }}> 
-                            <input type="checkbox" defaultChecked={false} onChange={()=> handleCompelteChane(data.id)}/>
-                            {data.title}
-                            <button style={btnStyle} onClick={()=>handleClick(data.id)}>X</button>
-                        </div>
-                    </div>  
+                      <ListMain key={data.id} id={data.id} title={data.title} completed={data.completed} todoData={todoData}
+                      setTodoData={setTodoData} provided={provided} handleClick={handleClick}  // ListMain 으로 값 다 넘겨줌
+                      />
                     )}
                 </Draggable>
                 ))}
-                {provided.placeholder}
+                {provided.placeholder}  {/* 드래그 효과 */}
                 </div>
             )}
             </Droppable>
         </DragDropContext>
         </div>
     );
-}
+});
  
 export default List;
 
