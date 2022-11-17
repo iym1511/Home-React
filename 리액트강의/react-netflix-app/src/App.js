@@ -5,23 +5,22 @@ import Nav from "./components/Nav";
 import DetailPage from "./pages/DetailPage";
 import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage";
-const Layout = () => {
-  return(
-    <div>
 
+const Layout = () => {
+  return (
+    <div>
       <Nav />
 
       <Outlet />
 
       <Footer />
-
     </div>
-  )
-}
+  );
+};
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Routes> 
         <Route path="/" element={<Layout />} >
           <Route index element={<MainPage />} />
