@@ -1,0 +1,13 @@
+.receipt{
+    width: 250px;
+    height: 500px;
+    background-color: antiquewhite;
+    margin: 150px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Humanbumsuk";
+    border-radius: 20px;
+    font-size: 20px;
+}
