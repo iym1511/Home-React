@@ -42,3 +42,9 @@
     justify-content: center;
     font-family: "Humanbumsuk";
 }
+.progress-bar{
+    background-color: #366360;
+}
+.progressbox{
+    margin-bottom: 50px;
+}

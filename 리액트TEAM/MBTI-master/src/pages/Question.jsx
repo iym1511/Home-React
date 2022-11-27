@@ -6,6 +6,25 @@ import DataContext from '../data/DataContext';
 
 
 const Question = () => {
+
+  // 프로그래스 바
+  const [countOfProgess, setCountOfProgess] = React.useState(0);
+ 
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCountOfProgess((oldProgress) => {
+        if (100 == oldProgress) return 0;
+        return Math.min(oldProgress + Math.random() * 10, 100);
+      });
+    }, 499);
+ 
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+  // 
+
+
   // DataContext
   const {state, action} = useContext(DataContext);
   
@@ -144,7 +163,9 @@ const Question = () => {
 
     return (  
         <div className='Wrapper'>
-            <ProgressBar striped variant="black" now={(questionNo) /state.question.length*100} value="50" min="0" max="90"/>
+          
+            <div className='progressbox'></div>
+            <ProgressBar  style={{height:"1%", borderRadius:"0px", width:"90%", margin:"auto"}}  now={(questionNo) /state.question.length*100} value="50" min="0" max="90"/>
             
             <div className='Title'>{dastQu.title}</div>
             

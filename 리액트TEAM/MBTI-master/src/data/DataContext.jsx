@@ -115,7 +115,7 @@ const DataProvider = (({children}) => {
         },
         {
             id:10,
-            title: "전체적인 실내 느낌",
+            title: "전체적인 실내 느낌 (희망사항)",
             answera: "모던",
             answerb: "미니멀",
             answerc: "심플",

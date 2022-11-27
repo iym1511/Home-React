@@ -14,7 +14,9 @@ body{
     width: 500px;
     height: 500px;
     margin: 150px auto;
+    border: 1px solid black;
 }
+
 
 .Header{
     font-family: 'Humanbumsuk';

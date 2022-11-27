@@ -1,21 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import DataContext from "../data/DataContext";
 import './Reciept.css';
 
 const Reciept = () => {
-
     const {state} = useContext(DataContext);
-    const [searchParams] = useSearchParams();
-    const mbti = searchParams.get('mbti');
-
-    // 최종적으로 도출한 결과 객체
-    const [resultData, setResultData] = useState({});
-    useEffect(()=>{
-        const result = state.score.find((s) => s.best === mbti);
-        setResultData(result);
-        
-    },[mbti])  
+ 
 
     return ( 
       <div>        

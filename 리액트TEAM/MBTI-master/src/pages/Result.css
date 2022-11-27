@@ -1,5 +1,5 @@
 body{
-    position: relative;
+    
 }
 .Wrapper{
     background-color: rgb(255, 250, 220);
@@ -7,6 +7,8 @@ body{
     height: 600px;
     margin: 150px auto;
     border-radius: 20px;
+    display: inline-block;
+    position: relative;
 }
 
 .Header{
@@ -41,9 +43,12 @@ body{
 }
 
 .ReStartBtn{
-    width: 60%;
-    min-height: 10px;
+    font-family: 'Humanbumsuk';
+    border-radius: 19px;
+    width: 100%;
+    min-height: 70px;
     font-size: 15pt;
+    font-weight: bolder;
     margin-top: 0px;
     border: none;
     --c: no-repeat linear-gradient(#366360 0 0);
@@ -53,12 +58,20 @@ body{
     transition: .3s calc(var(--i,0)*.3s), background-position .3s calc(.3s - var(--i,0)*.3s);
 }
 
-  .ReStartBtn:hover {
+.ReStartBtn:hover {
     --i: 1;
     color: white;
-  }
+    border: 1px solid white;
+}
+
+
+
   .Reciept-box{
-    position: absolute;
+    position: relative;
+    left: 449px;
+    margin-left: 100px;
+    margin-top: -220px;
+    clear: right;
     width: 250px;
     height: 70px;
     background-color: rgb(255, 242, 215);
@@ -66,6 +79,4 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    right: 585px;
-    bottom: 150px;
 }

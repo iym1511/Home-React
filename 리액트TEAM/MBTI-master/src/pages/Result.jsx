@@ -34,8 +34,10 @@ const Result = () => {
                 <div className='Desc'>나에게 어울리는 업체  "{resultData.name}" </div>
                 </div>
             </div>
-            <div className='Reciept-box'>
-            <button className='ReStartBtn' onClick={()=>navigate('/Asd')}>업체 보러가기</button>{/** 다시짜기하면 넘처서 안될듯*/}
+            <div>
+            <span className='Reciept-box'>
+              <button className='ReStartBtn' onClick={()=>navigate('/Asd')}>업체 보러가기</button>{/** 다시짜기하면 넘처서 안될듯*/}
+            </span>
             </div>
         </div>
     );

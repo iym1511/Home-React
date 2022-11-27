@@ -1,9 +1,8 @@
 import './App.css';
 import Reciept from './components/Reciept';
 import View from './components/View';
-import { DataProvider } from './data/DataContext'
-import Asd from './pages/Asd';
-import {Routes, Route} from 'react-router-dom';
+import { DataProvider } from './data/DataContext' 
+
 function App() {
   return (
     <div className="App">
@@ -11,7 +10,6 @@ function App() {
         <View />
         <Reciept />
       </DataProvider>
-      
     </div>
   );
 }

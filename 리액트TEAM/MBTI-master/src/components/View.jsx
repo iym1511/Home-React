@@ -15,7 +15,7 @@ const View = () => {
                 <Route path='question' element={<Question />}></Route>
                 <Route path='result' element={<Result />}></Route>
                 <Route path='Asd' element={<Asd />}> </Route>
-                <Route path='Reciept' element={<Reciept />}> </Route>
+                <Route path='reciept' element={<Reciept />}> </Route>
             </Routes>
         </div>
     );
