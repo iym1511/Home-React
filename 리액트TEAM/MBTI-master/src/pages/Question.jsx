@@ -99,13 +99,6 @@ const Question = () => {
       }
       console.log(companyIndex);
       console.log(state.reciept)
-
-    // 맞춤 업체 결과  출력
-    const newCompanies = state.result.filter((company)=>(company[rName] == companyIndex));
-      if(companyIndex){
-        action.setResult(newCompanies)
-      }
-      console.log(state.result);
       
 
     //console.log('newScore', newScore)

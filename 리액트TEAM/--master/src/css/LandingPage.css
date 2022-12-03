@@ -1,0 +1,5 @@
+.inputForm {
+  position: absolute;
+  margin-right: 400px;
+}
+input:focus {outline:none;}

@@ -10,17 +10,14 @@ const Reciept = () => {
     return ( 
       <div>        
         <div className="receipt">
+          <div className="State-bar">
+            선택 항목
+          </div>
+          
             {
               state.reciept.map((r,i)=>(
                 <div key={i}>
-                  <p>{r.name}{r.answer}</p>
-                </div>
-              ))
-            }
-            {
-              state.result.map((r,i)=>(
-                <div className="result-map" key={i}>
-                  <p style={{margin: "0"}}></p>
+                  <p className="checklist">{r.name}{r.answer}</p>
                 </div>
               ))
             }

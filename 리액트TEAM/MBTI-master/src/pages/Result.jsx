@@ -19,7 +19,6 @@ const Result = () => {
         setResultData(result);
         
     },[mbti])   
-
     
 
     return (  
@@ -36,7 +35,32 @@ const Result = () => {
             </div>
             <div>
             <span className='Reciept-box'>
-              <button className='ReStartBtn' onClick={()=>navigate('/Asd')}>업체 보러가기</button>{/** 다시짜기하면 넘처서 안될듯*/}
+                {/* <a href={data.state.score[].src}>업체 보러가기</a> */}
+                <button className='ReStartBtn' onClick={()=>{
+                    console.log(resultData.best)
+                    const a = resultData.best;
+                    switch(a){
+                            case "EST":
+                            return window.open('https://www.naver.com/');
+                            case "ESF":
+                            return window.open('https://www.daum.net/');;
+                            case "ENT":
+                            return window.open('https://www.daum.net/');;
+                            case "ENF":
+                            return window.open('https://www.daum.net/');;
+                            case "IST":
+                            return window.open('https://www.daum.net/');;
+                            case "ISF":
+                            return window.open('https://www.daum.net/');;
+                            case "INT":
+                            return window.open('https://www.daum.net/');;
+                            case "INF":
+                            return window.open('https://www.daum.net/');;
+                        };
+                    }
+                }>
+                    업체보러가기
+                </button>{/** 다시짜기하면 넘처서 안될듯*/}
             </span>
             </div>
         </div>

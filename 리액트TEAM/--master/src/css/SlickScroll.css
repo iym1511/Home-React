@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+li {
+  list-style: none;
+}
+.outer {
+  height: 100vh;
+  overflow-y: auto;
+}
+.inner {
+  height: 100vh;
+}
+.outer::-webkit-scrollbar {
+  /* 화면에서 스크롤바 안보이게 */
+  display: none;
+}
+.bg-blue {
+  display: flex;
+  justify-content: center;
+}
+.bg-blue > ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.bg-blue > ul > li {
+  padding: 15px;
+}
+
+.bg-black {
+  display: flex;
+  justify-content: center;
+  top: 50%;
+  position: relative;
+}
+.bg-dark > li {
+  display: flex;
+  align-content: center;
+  position: relative;
+  top: 47.5%;
+}
+.bg-pink {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  margin-top: 250px;
+}
+.fix-box {
+  position: fixed;
+  border: none;
+  margin: 0;
+  z-index: 1;
+  width: 100%;
+}
+.Footer {
+  text-align: center;
+  background-color: black;
+  color: gray;
+}
+.span {
+  position: relative;
+  text-align: center;
+}
+.span2 {
+  position: relative;
+  text-align: center;
+  top: 65%;
+}
